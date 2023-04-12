@@ -2,10 +2,10 @@
 import 'package:device_preview/device_preview.dart';
 import 'package:flutter/material.dart';
 import 'package:my_project/providers/user_provider.dart';
-import 'package:my_project/screens/onboarding.dart';
-import 'package:my_project/screens/sign_in.dart';
-import 'package:my_project/screens/sign_up.dart';
-import 'package:my_project/screens/splash_screen.dart';
+import 'package:my_project/screens/onboarding/onboarding.dart';
+import 'package:my_project/screens/auth/sign_in.dart';
+import 'package:my_project/screens/auth/sign_up.dart';
+import 'package:my_project/screens/welcome/splash_screen.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(
