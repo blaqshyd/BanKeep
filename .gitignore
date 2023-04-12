@@ -50,7 +50,7 @@ app.*.map.json
 
 
 
-/server/.env
-/server/node_modules
+./server/.env
+./server/node_modules
 
 
