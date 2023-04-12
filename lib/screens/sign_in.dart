@@ -2,12 +2,26 @@
 
 import 'package:flutter/material.dart';
 import 'package:my_project/screens/sign_up.dart';
-import 'home_page.dart';
+import '../services/auth_services.dart';
 
-class sign_in_page extends StatelessWidget {
-  const sign_in_page({Key? key}) : super(key: key);
+class LoginPage extends StatefulWidget {
+  const LoginPage({Key? key}) : super(key: key);
 
-  // void _signIn() {}
+  @override
+  State<LoginPage> createState() => _LoginPageState();
+}
+
+class _LoginPageState extends State<LoginPage> {
+  final TextEditingController emailController = TextEditingController();
+  final TextEditingController passwordController = TextEditingController();
+  final AuthService authService = AuthService();
+  void logInUser() {
+    authService.signInUser(
+      context: context,
+      email: emailController.text,
+      password: passwordController.text,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -16,13 +30,6 @@ class sign_in_page extends StatelessWidget {
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            // Text(
-            //   "L O G O ",
-            //   style: TextStyle(
-            //     fontSize: 32.0,
-            //     fontWeight: FontWeight.bold,
-            //   ),
-            // ),
             Image.asset(
               'assets/icons/hp_64px.png',
             ),
@@ -32,6 +39,7 @@ class sign_in_page extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 0.0),
               child: TextFormField(
+                controller: emailController,
                 decoration: InputDecoration(
                   // alignLabelWithHint: true,
                   labelText: "Username",
@@ -45,6 +53,7 @@ class sign_in_page extends StatelessWidget {
               padding: const EdgeInsets.fromLTRB(20.0, 24.0, 20.0, 0.0),
               child: TextFormField(
                 obscureText: true,
+                controller: passwordController,
                 decoration: InputDecoration(
                   alignLabelWithHint: true,
                   labelText: "Password",
@@ -62,10 +71,7 @@ class sign_in_page extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(20.0),
               child: ElevatedButton(
-                onPressed: () {
-                  Navigator.push(context,
-                      MaterialPageRoute(builder: (context) => home_page()));
-                },
+                onPressed: logInUser,
                 child: Padding(
                   padding: const EdgeInsets.only(top: 12.0, bottom: 12.0),
                   child: SizedBox(
@@ -89,7 +95,7 @@ class sign_in_page extends StatelessWidget {
                     Navigator.push(
                         context,
                         MaterialPageRoute(
-                            builder: (context) => sign_up_page()));
+                            builder: (context) => RegisterPage()));
                   },
                   child: Text(
                     'Sign Up',
@@ -109,29 +115,3 @@ class sign_in_page extends StatelessWidget {
   }
 }
 
-
-
-     // MaterialButton(
-            //     child: Padding(
-            //       padding: const EdgeInsets.all(8.0),
-            //       child: RichText(
-            //         text: TextSpan(
-            //           children: [
-            //             TextSpan(text: "New user?",
-            //             style: TextStyle(color: Colors.black)),
-            //             TextSpan(
-            //                 text: " Sign Up",
-            //                 style: TextStyle(
-            //                   fontWeight: FontWeight.bold,
-            //                   color: Colors.deepPurple,
-            //                 ),
-            //             ),
-            //           ],
-            //         ),
-            //       ),
-            //     ),
-            //     onPressed: () {
-            //       Navigator.push(context, MaterialPageRoute(
-            //             builder: (context) => sign_up_page()));
-            //     },
-            //     ),

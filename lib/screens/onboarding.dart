@@ -4,7 +4,7 @@ import 'package:flutter/material.dart';
 import 'package:my_project/onboarding/onboarding_one.dart';
 import 'package:my_project/onboarding/onboarding_three.dart';
 import 'package:my_project/onboarding/onboarding_two.dart';
-import 'package:my_project/screens/sign_in.dart';
+import 'package:my_project/screens/sign_up.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class onboardingPage extends StatefulWidget {
@@ -67,7 +67,7 @@ class _onboardingPageState extends State<onboardingPage> {
                             onTap: () => Navigator.push(
                                 context,
                                 MaterialPageRoute(
-                                  builder: (context) => sign_in_page(),
+                                  builder: (context) => RegisterPage(),
                                 ),
                             ),
                             child: Text("Done",

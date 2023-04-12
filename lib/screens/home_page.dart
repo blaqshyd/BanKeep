@@ -1,13 +1,26 @@
 // ignore_for_file: camel_case_types
 
 import 'package:flutter/material.dart';
+import 'package:my_project/providers/user_provider.dart';
+import 'package:provider/provider.dart';
 
-class home_page extends StatelessWidget {
-  const home_page({Key? key}) : super(key: key);
+class HomePage extends StatelessWidget {
+  const HomePage({Key? key}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
+      body: Center(
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.center,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(user.email),
+            Text(user.name),
+          ],
+        ),
+      ),
       // appBar: AppBar(
       //   title: const Text('Damina'),
       //   foregroundColor: Colors.white,
@@ -29,7 +42,6 @@ class home_page extends StatelessWidget {
         ],
       ),
       // End of Bottom Navigation
-      
     );
   }
 }
