@@ -1,10 +1,10 @@
 // ignore_for_file: camel_case_types, prefer_const_constructors, prefer_const_literals_to_create_immutables, avoid_returning_null_for_void
 
 import 'package:flutter/material.dart';
-import 'package:my_project/screens/onboarding/onboarding_one.dart';
-import 'package:my_project/screens/onboarding/onboarding_three.dart';
-import 'package:my_project/screens/onboarding/onboarding_two.dart';
-import 'package:my_project/screens/auth/sign_up.dart';
+import 'package:my_project/views/onboarding/onboarding_one.dart';
+import 'package:my_project/views/onboarding/onboarding_three.dart';
+import 'package:my_project/views/onboarding/onboarding_two.dart';
+import 'package:my_project/views/auth/sign_up.dart';
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 class onboardingPage extends StatefulWidget {

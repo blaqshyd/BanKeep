@@ -1,7 +1,7 @@
 // ignore_for_file: camel_case_types, ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables,, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:my_project/screens/auth/sign_in.dart';
+import 'package:my_project/views/auth/sign_in.dart';
 import 'package:my_project/services/auth_services.dart';
 
 class RegisterPage extends StatefulWidget {
@@ -54,6 +54,7 @@ class _RegisterPageState extends State<RegisterPage> {
                 ),
               ),
             ),
+            
             Padding(
               padding: const EdgeInsets.fromLTRB(20.0, 15.0, 20.0, 0.0),
               child: TextFormField(
@@ -144,3 +145,4 @@ class _RegisterPageState extends State<RegisterPage> {
     );
   }
 }
+

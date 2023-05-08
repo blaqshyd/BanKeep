@@ -38,20 +38,6 @@ class HomePage extends StatelessWidget {
         ),
       ),
 
-      bottomNavigationBar: BottomNavigationBar(
-        backgroundColor: Colors.deepPurple,
-        selectedItemColor: Colors.amber,
-        unselectedItemColor: Colors.deepPurple,
-        // fixedColor: Colors.amberAccent,
-        items: const [
-          BottomNavigationBarItem(icon: Icon(Icons.home_filled), label: "Home"),
-          BottomNavigationBarItem(icon: Icon(Icons.dashboard), label: "Dash"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.book_online), label: "Books"),
-          BottomNavigationBarItem(
-              icon: Icon(Icons.settings), label: "Settings"),
-        ],
-      ),
       // End of Bottom Navigation
     );
   }

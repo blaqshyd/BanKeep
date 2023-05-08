@@ -1,9 +1,11 @@
+// ignore_for_file: unused_local_variable
+
 import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:my_project/models/user.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_project/screens/views/home/home_page.dart';
+import 'package:my_project/views/main/main_page.dart';
 import 'package:my_project/utils/utils.dart';
 import 'package:provider/provider.dart';
 import 'package:shared_preferences/shared_preferences.dart';
@@ -33,7 +35,7 @@ class AuthService {
         Uri.parse('${Constants.uri}/register'),
         body: user.toJson(),
         headers: <String, String>{
-          'Content-Type': 'application/json; charsrt=UTF-8'
+          'Content-Type': 'application/json; charset=UTF-8'
         },
       );
       httpErrorHandler(
@@ -74,7 +76,7 @@ class AuthService {
           userProvider.setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
           navigator.pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => const HomePage()),
+              MaterialPageRoute(builder: (context) => MainPage()),
               (route) => false);
         },
       );
@@ -101,9 +103,7 @@ class AuthService {
           });
 
       var response = jsonDecode(tokenRes.body);
-      if (response == true){
-        
-      }
+      if (response == true) {}
     } catch (e) {
       showSnackBar(context, e.toString());
     }
