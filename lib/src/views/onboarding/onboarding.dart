@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+
 import 'package:smooth_page_indicator/smooth_page_indicator.dart';
 
 import '../../../utils/constants/exports.dart';
+import '../../models/data.dart';
 import 'components/onboarding.dart';
 
 class OnboardingPage extends StatefulWidget {
@@ -35,11 +37,11 @@ class _OnboardingPageState extends State<OnboardingPage> {
           children: [
             PageView.builder(
               itemBuilder: (context, index) => OnboardDetails(
-                image: onboardImage[index],
-                header: onboardHeader[index],
-                desc: onboardDesc[index],
+                image: onboardContent[index].image,
+                header: onboardContent[index].header,
+                desc: onboardContent[index].desc,
               ),
-              itemCount: 3,
+              itemCount: onboardContent.length,
               controller: _controller,
               onPageChanged: (index) {
                 setState(() {
@@ -76,48 +78,34 @@ class _OnboardingPageState extends State<OnboardingPage> {
                     SmoothPageIndicator(
                       controller: _controller,
                       count: 3,
-                      effect: ExpandingDotsEffect(
+                      effect: const ExpandingDotsEffect(
                         strokeWidth: 4,
                         dotHeight: 14,
-                        activeDotColor: AppColor.buttonColor,
+                        activeDotColor: AppColor.primaryColor,
                       ),
                     ),
                     // condition to change the next to done if the condition that(last page) is met
                     onLastPage
-                        ? GestureDetector(
+                        ? CircleIcon(
+                            color: AppColor.primaryColor,
+                            child: const Icon(
+                              Icons.done,
+                              color: Colors.white,
+                            ),
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
                                 builder: (context) => MainPage(),
                               ),
                             ),
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: AppColor.buttonColor,
-                              ),
-                              child: const Icon(
-                                Icons.done,
-                                color: Colors.white,
-                              ),
-                            ),
                           )
-                        : GestureDetector(
+                        : CircleIcon(
+                            child: const Icon(Iconsax.arrow_right_1),
                             onTap: () => _controller.nextPage(
-                                  duration: const Duration(milliseconds: 500),
-                                  curve: Curves.easeIn,
-                                ),
-                            child: Container(
-                              height: 50,
-                              width: 50,
-                              decoration: BoxDecoration(
-                                shape: BoxShape.circle,
-                                color: Colors.grey[300],
-                              ),
-                              child: const Icon(Iconsax.arrow_right_1),
-                            )),
+                              duration: const Duration(milliseconds: 500),
+                              curve: Curves.easeIn,
+                            ),
+                          ),
                   ],
                 )),
           ],

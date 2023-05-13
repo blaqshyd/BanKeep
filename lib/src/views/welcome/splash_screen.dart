@@ -26,7 +26,7 @@ class _SplashScreenState extends State<SplashScreen> {
 
   Future<void> loadSplash() async {
     Future.delayed(
-      Duration(seconds: 3),
+      Duration(seconds: 6),
       () {
         if (mounted) {
           Navigator.push(

@@ -16,6 +16,7 @@ dependencies:
   flutter_svg: ^2.0.5
   google_fonts: ^4.0.4
   http: ^0.13.5
+  iconly: ^1.0.1
   iconsax: ^0.0.8
   my_formfield: ^0.0.1
   provider: ^6.0.5

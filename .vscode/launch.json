@@ -10,7 +10,7 @@
             "name": "hello",
             "request": "launch",
             "type": "dart",
-            "program": "lib/src/main.dart"
+            "program": "lib/main.dart"
 
         },
         {
@@ -18,7 +18,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
-            "program": "lib/src/main.dart"
+            "program": "lib/main.dart"
 
         },
         {
@@ -26,7 +26,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "profile",
-            "program": "lib/src/main.dart"
+            "program": "lib/main.dart"
 
         },
         {
@@ -34,7 +34,7 @@
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",
-            "program": "lib/src/main.dart"
+            "program": "lib/main.dart"
 
         }
     ]

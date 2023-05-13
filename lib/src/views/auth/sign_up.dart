@@ -21,6 +21,8 @@ class _RegisterPageState extends State<RegisterPage> {
   final TextEditingController usernameController = TextEditingController();
   final AuthService authService = AuthService();
 
+  get isVisible => false;
+
   void registerUser() {
     authService.signUpUser(
       context: context,
@@ -37,111 +39,64 @@ class _RegisterPageState extends State<RegisterPage> {
       body: SafeArea(
         child: Padding(
           padding: AppConstants.padding,
-          child: Center(
-            child: SingleChildScrollView(
-              child: Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  // Spacer(),
-                  Text(
-                    'Sign In',
-                    style: AppTextTheme.headLine,
-                  ),
-                  // Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextFormField(
-                      controller: nameController,
-                      decoration: InputDecoration(
-                        alignLabelWithHint: true,
-                        labelText: "Full name",
-                        // hintText: "Enter Password",
-                        prefixIcon: Icon(Icons.account_circle),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                      ),
-                    ),
-                  ),
+          child: SingleChildScrollView(
+            child: Column(
+              mainAxisAlignment: MainAxisAlignment.center,
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                AppSizing.h30,
+                AppSizing.h30,
+                AppSizing.h30,
 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextFormField(
-                      controller: usernameController,
-                      decoration: InputDecoration(
-                        // alignLabelWithHint: true,
-                        labelText: "Username",
-                        // hintText: "Enter Username",
-                        prefixIcon: Icon(Icons.alternate_email),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                      ),
-                    ),
-                  ),
+                Text(
+                  'Sign Up',
+                  style: AppTextTheme.headLine,
+                ),
+                // Spacer(),
+                AppSizing.h30,
+                CustomFormField(
+                  textFieldLabel: 'Full name',
+                  controller: nameController,
+                  prefixIcon: Icon(Iconsax.profile_circle),
+                ),
 
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextFormField(
-                      controller: emailController,
-                      decoration: InputDecoration(
-                        // alignLabelWithHint: true,
-                        labelText: "Email address",
-                        // hintText: "Enter Username",
-                        prefixIcon: Icon(Icons.email),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                      ),
-                    ),
-                  ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextFormField(
-                      controller: passwordController,
-                      obscureText: true,
-                      decoration: InputDecoration(
-                        alignLabelWithHint: true,
-                        labelText: "Password",
-                        // hintText: "Enter Password",
-                        prefixIcon: Icon(Icons.remove_red_eye),
-                        border: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(12)),
-                      ),
-                    ),
-                  ),
-                  SizedBox(
-                    height: 25.0,
-                  ),
+                CustomFormField(
+                  textFieldLabel: 'Username',
+                  controller: usernameController,
+                  prefixIcon: Icon(Iconsax.attach_circle),
+                ),
+                CustomFormField(
+                  textFieldLabel: 'Email Address',
+                  controller: emailController,
+                  prefixIcon: Icon(Iconsax.sms),
+                ),
+                CustomFormField(
+                  textFieldLabel: 'Password',
+                  controller: passwordController,
+                  obscureText: true,
+                  prefixIcon: Icon(Iconsax.lock_1),
+                  suffixIcon:
+                      isVisible ? Icon(Iconsax.eye) : Icon(Iconsax.eye_slash),
+                ),
+                SizedBox(
+                  height: 25.0,
+                ),
 
-                  // Sign in Button
-                  CustomButton(
-                    onPressed: registerUser,
-                    buttonText: 'Sign Up',
+                // Sign in Button
+                CustomButton(
+                  onPressed: registerUser,
+                  buttonText: 'Sign Up',
+                ),
+                SizedBox(height: 20.0),
+                AuthChange(
+                  ftext: 'Sign In',
+                  text: 'Already have an account.',
+                  onPressed: () => Navigator.push(
+                    context,
+                    MaterialPageRoute(builder: (context) => LoginPage()),
                   ),
-                  SizedBox(height: 20.0),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text("New User?"),
-                      TextButton(
-                        onPressed: () {
-                          Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => LoginPage()));
-                        },
-                        child: Text(
-                          'Login',
-                          style: TextStyle(
-                            color: Colors.deepPurple,
-                            fontSize: 16.0,
-                            fontWeight: FontWeight.w600,
-                          ),
-                        ),
-                      ),
-                    ],
-                  ),
-                ],
-              ),
+                ),
+              ],
             ),
           ),
         ),

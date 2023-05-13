@@ -1,6 +1,4 @@
 import 'package:flutter/material.dart';
-import 'package:my_project/src/views/screens/home/home_page.dart';
-import 'package:my_project/src/views/screens/profile/profile.dart';
 
 import '../../../utils/constants/exports.dart';
 
@@ -8,9 +6,9 @@ class MainPage extends StatelessWidget {
   MainPage({super.key});
   final List<Widget> views = [
     const HomePage(),
-    const ProfileScreen(),
-    const HomePage(),
-    const ProfileScreen(),
+    const Cards(),
+    const Statistics(),
+    const Settings(),
   ];
   @override
   Widget build(BuildContext context) {
@@ -52,34 +50,31 @@ class NavBar extends StatelessWidget {
       currentIndex: currentIndex,
       elevation: 0,
       type: BottomNavigationBarType.fixed,
-      backgroundColor: Colors.white,
-      selectedItemColor: Colors.grey[900],
+      selectedLabelStyle: AppTextTheme.navTextStyle.copyWith(
+        fontWeight: FontWeight.w500,
+        fontSize: 12,
+      ),
+      unselectedLabelStyle: AppTextTheme.navTextStyle,
+      backgroundColor: AppColor.navColor,
+      selectedItemColor: AppColor.primaryColor,
       unselectedItemColor: Colors.grey,
-      showUnselectedLabels: false,
-      items: [
+      showUnselectedLabels: true,
+      items: const [
         BottomNavigationBarItem(
-          icon: currentIndex == 0
-              ? const Icon(Iconsax.home)
-              : const Icon(Iconsax.home_1),
+          icon: Icon(Iconsax.home),
           label: "Home",
         ),
         BottomNavigationBarItem(
-          icon: currentIndex == 1
-              ? const Icon(Iconsax.message_add)
-              : const Icon(Iconsax.message),
-          label: "Messages",
+          icon: Icon(Iconsax.wallet_2),
+          label: "My Cards",
         ),
         BottomNavigationBarItem(
-          icon: currentIndex == 2
-              ? const Icon(Iconsax.user_tag1)
-              : const Icon(Iconsax.user_tag),
-          label: "Books",
+          icon: Icon(Iconsax.graph),
+          label: "Statistics",
         ),
         BottomNavigationBarItem(
-          icon: currentIndex == 3
-              ? const Icon(Iconsax.user4)
-              : const Icon(Iconsax.user),
-          label: "Profile",
+          icon: Icon(Iconsax.setting_2),
+          label: "Settings",
         ),
       ],
     );

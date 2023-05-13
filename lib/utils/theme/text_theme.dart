@@ -6,7 +6,7 @@ abstract class AppTextTheme {
   static TextStyle headLine = GoogleFonts.poppins(
     fontSize: 32.sp,
     fontWeight: FontWeight.w500,
-    color: AppColor.textColor,
+    color: AppColor.pTextColor,
   );
   static TextStyle header = GoogleFonts.poppins(
     fontSize: 26.sp,
@@ -17,6 +17,24 @@ abstract class AppTextTheme {
     fontSize: 14.sp,
     fontWeight: FontWeight.w400,
     color: AppColor.descTextColor,
+  );
+
+  static TextStyle pTextStyle = GoogleFonts.poppins(
+    fontSize: 16.sp,
+    fontWeight: FontWeight.w600,
+    color: AppColor.pTextColor,
+  );
+
+  static TextStyle sTextStyle = GoogleFonts.poppins(
+    fontSize: 14.sp,
+    fontWeight: FontWeight.w400,
+    color: AppColor.sTextColor,
+  );
+
+  static TextStyle navTextStyle = GoogleFonts.inter(
+    fontSize: 11.sp,
+    fontWeight: FontWeight.w500,
+    color: AppColor.sTextColor,
   );
 
   //! Text Theme for light mode

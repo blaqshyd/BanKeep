@@ -1,7 +1,8 @@
 import 'package:flutter/material.dart';
+import 'package:my_project/utils/constants/exports.dart';
 
 class CustomButton extends StatelessWidget {
-  final Function()? onPressed;
+  final VoidCallback? onPressed;
   final String? buttonText;
   const CustomButton({
     Key? key,
@@ -13,11 +14,7 @@ class CustomButton extends StatelessWidget {
   Widget build(BuildContext context) {
     return ElevatedButton(
       onPressed: onPressed,
-      style: ElevatedButton.styleFrom(
-          minimumSize: const Size(double.infinity, 60),
-          shape: RoundedRectangleBorder(
-            borderRadius: BorderRadius.circular(12),
-          )),
+      style: AppConstants.buttonStyle,
       child: Text(
         buttonText!,
         style: const TextStyle(fontSize: 16),

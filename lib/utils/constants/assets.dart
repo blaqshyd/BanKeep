@@ -1,3 +1,6 @@
+import 'package:flutter/material.dart';
+import 'package:my_project/utils/constants/exports.dart';
+
 class Assets {
   static String image = 'lib/assets/images/';
   static String icon = 'lib/assets/icons/';
@@ -6,20 +9,16 @@ class Assets {
   static String uri = 'https://serverdel.onrender.com/api/users';
 }
 
-final List<String> onboardHeader = [
-  "Fastest Payment in \nthe world",
-  "The most Secure Platform \nfor Customer",
-  "Paying for Everything is \nEasy and Convenient"
+final List<IconData> iconMe = [
+  Iconsax.arrow_up_3,
+  Iconsax.arrow_down,
+  Iconsax.dollar_circle,
+  Iconsax.export,
 ];
 
-final List<String> onboardImage = [
-  '${Assets.illustration}/1.svg',
-  '${Assets.illustration}/2.svg',
-  '${Assets.illustration}/3.svg',
-];
-
-final List<String> onboardDesc = [
-  "Integrate multiple payment methods to help you up the process quickly",
-  "Built-in Fingerprint, face recognition and more, keeping you completely safe",
-  "Built-in Fingerprint, face recognition and more, keeping you completely safe"
+final List<String> textMe = [
+  'Sent',
+  'Receive',
+  'Loan',
+  'Top Up',
 ];

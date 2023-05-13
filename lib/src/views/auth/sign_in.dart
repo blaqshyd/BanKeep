@@ -1,7 +1,6 @@
 // ignore_for_file: camel_case_types, ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables,, prefer_const_constructors
 
 import 'package:flutter/material.dart';
-import 'package:my_formfield/my_formfield.dart';
 import '../../services/auth_services.dart';
 import '../../../utils/constants/exports.dart';
 
@@ -16,6 +15,8 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController emailController = TextEditingController();
   final TextEditingController passwordController = TextEditingController();
   final AuthService authService = AuthService();
+
+  get isVisible => false;
   void logInUser() {
     authService.signInUser(
       context: context,
@@ -28,73 +29,52 @@ class _LoginPageState extends State<LoginPage> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: SafeArea(
-        child: Center(
-          child: Padding(
-            padding: AppConstants.padding,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Spacer(),
-                Text(
-                  'Sign In',
-                  style: AppTextTheme.headLine,
-                ),
-                Spacer(),
+        child: Padding(
+          padding: AppConstants.padding,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Spacer(),
+              Text(
+                'Sign In',
+                style: AppTextTheme.headLine,
+              ),
+              Spacer(),
+              CustomFormField(
+                textFieldLabel: 'Email Address',
+                controller: emailController,
+                prefixIcon: Icon(Iconsax.sms),
+              ),
+              CustomFormField(
+                textFieldLabel: 'Password',
+                controller: passwordController,
+                obscureText: true,
+                prefixIcon: Icon(Iconsax.lock_1),
+                suffixIcon:
+                    isVisible ? Icon(Iconsax.eye) : Icon(Iconsax.eye_slash),
+              ),
 
-                MyFormField(
-                  controller: emailController,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                  prefixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.person),
-                  ),
-                  inputLabel: "Email Address",
-                ),
-                SizedBox(height: 20),
-                MyFormField(
-                  obscureText: true,
-                  controller: passwordController,
-                  border: OutlineInputBorder(
-                      borderRadius: BorderRadius.circular(12)),
-                  prefixIcon: IconButton(
-                    onPressed: () {},
-                    icon: Icon(Icons.remove_red_eye),
-                  ),
-                  inputLabel: "Password",
-                ),
+              AppSizing.h30,
 
-                SizedBox(
-                  height: 25.0,
-                ),
+              // Sign in Button
+              CustomButton(
+                onPressed: logInUser,
+                buttonText: 'Sign In',
+              ),
 
-                // Sign in Button
-                CustomButton(
-                  onPressed: logInUser,
-                  buttonText: 'Sign In',
+              SizedBox(height: 20.0),
+              AuthChange(
+                ftext: 'Sign Up',
+                text: 'I\'m a new user',
+                onPressed: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => RegisterPage()),
                 ),
-                SizedBox(height: 20.0),
-                Row(
-                  mainAxisAlignment: MainAxisAlignment.center,
-                  children: [
-                    Text("I'm a new user"),
-                    TextButton(
-                      onPressed: () {
-                        Navigator.push(
-                            context,
-                            MaterialPageRoute(
-                                builder: (context) => RegisterPage()));
-                      },
-                      child: Text(
-                        'Sign Up',
-                      ),
-                    ),
-                  ],
-                ),
-                Spacer(flex: 2)
-              ],
-            ),
+              ),
+
+              Spacer(flex: 2)
+            ],
           ),
         ),
       ),
