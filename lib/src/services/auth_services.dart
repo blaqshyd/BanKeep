@@ -4,7 +4,7 @@ import 'dart:convert';
 
 import 'package:flutter/material.dart';
 import 'package:http/http.dart' as http;
-import 'package:my_project/utils/constants/exports.dart';
+import 'package:bankeep/utils/constants/exports.dart';
 
 class AuthService {
 //! Register the user
@@ -28,7 +28,27 @@ class AuthService {
         password: password,
       );
 
-      http.Response res = await http.post(
+      showDialog(
+        context: context,
+        builder: (context) => Center(
+          child: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: AppColor.sTextColor,
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      );
+
+      final res = await http.post(
         Uri.parse('${Assets.uri}/register'),
         body: user.toJson(),
         headers: <String, String>{
@@ -59,6 +79,7 @@ class AuthService {
   }
 
 //! Login the user
+
   void signInUser({
     required BuildContext context,
     required String email,
@@ -67,16 +88,38 @@ class AuthService {
     try {
       var userProvider = Provider.of<UserProvider>(context, listen: false);
       final navigator = Navigator.of(context);
-      http.Response res = await http.post(
+
+      showDialog(
+        context: context,
+        builder: (context) => Center(
+          child: Container(
+            height: 60,
+            width: 60,
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(12),
+              color: AppColor.sTextColor,
+            ),
+            child: const Padding(
+              padding: EdgeInsets.all(12.0),
+              child: CircularProgressIndicator(
+                color: Colors.white,
+              ),
+            ),
+          ),
+        ),
+      );
+
+      final res = await http.post(
         Uri.parse('${Assets.uri}/login'),
         body: jsonEncode({
           'email': email,
           'password': password,
         }),
         headers: <String, String>{
-          'Content-Type': 'application/json; charsrt=UTF-8'
+          'Content-Type': 'application/json; charset=UTF-8'
         },
       );
+
       httpErrorHandler(
         response: res,
         context: context,
@@ -84,12 +127,16 @@ class AuthService {
           SharedPreferences prefs = await SharedPreferences.getInstance();
           userProvider.setUser(res.body);
           await prefs.setString('x-auth-token', jsonDecode(res.body)['token']);
+
+          Navigator.of(context).pop(); // Dismiss the dialog
           navigator.pushAndRemoveUntil(
-              MaterialPageRoute(builder: (context) => MainPage()),
-              (route) => false);
+            MaterialPageRoute(builder: (context) => MainPage()),
+            (route) => false,
+          );
         },
       );
     } catch (e) {
+      // Handle general exceptions or provide user-friendly error messages
       showSnackBar(context, e.toString());
     }
   }

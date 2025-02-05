@@ -3,23 +3,23 @@
 
 import 'package:flutter/material.dart';
 
-import 'package:my_project/src/services/auth_services.dart';
+import 'package:bankeep/src/services/auth_services.dart';
 
 import '../../../utils/constants/exports.dart';
 
 class RegisterPage extends StatefulWidget {
-  const RegisterPage({Key? key}) : super(key: key);
+  const RegisterPage({super.key});
 
   @override
   State<RegisterPage> createState() => _RegisterPageState();
 }
 
 class _RegisterPageState extends State<RegisterPage> {
-  final TextEditingController emailController = TextEditingController();
-  final TextEditingController passwordController = TextEditingController();
-  final TextEditingController nameController = TextEditingController();
-  final TextEditingController usernameController = TextEditingController();
-  final AuthService authService = AuthService();
+  final emailController = TextEditingController();
+  final passwordController = TextEditingController();
+  final nameController = TextEditingController();
+  final usernameController = TextEditingController();
+  final authService = AuthService();
 
   get isVisible => false;
 

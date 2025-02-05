@@ -7,20 +7,14 @@
 
         
         {
-            "name": "hello",
-            "request": "launch",
-            "type": "dart",
-            "program": "lib/main.dart"
-
-        },
-        {
-            "name": "hello  (debug mode)",
+            "name": "dev",
             "request": "launch",
             "type": "dart",
             "flutterMode": "debug",
             "program": "lib/main.dart"
 
         },
+      
         {
             "name": "hello (profile mode)",
             "request": "launch",
@@ -30,7 +24,7 @@
 
         },
         {
-            "name": "hello (release mode)",
+            "name": "prod",
             "request": "launch",
             "type": "dart",
             "flutterMode": "release",

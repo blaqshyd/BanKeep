@@ -1,5 +1,3 @@
-import 'package:my_project/utils/constants/exports.dart';
-
 class OnboardContents {
   final String header;
   final String image;
@@ -10,5 +8,3 @@ class OnboardContents {
     required this.desc,
   });
 }
-
-

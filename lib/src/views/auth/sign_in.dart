@@ -5,7 +5,7 @@ import '../../services/auth_services.dart';
 import '../../../utils/constants/exports.dart';
 
 class LoginPage extends StatefulWidget {
-  const LoginPage({Key? key}) : super(key: key);
+  const LoginPage({super.key});
 
   @override
   State<LoginPage> createState() => _LoginPageState();
@@ -16,7 +16,7 @@ class _LoginPageState extends State<LoginPage> {
   final TextEditingController passwordController = TextEditingController();
   final AuthService authService = AuthService();
 
-  get isVisible => false;
+  bool get isVisible => false;
   void logInUser() {
     authService.signInUser(
       context: context,

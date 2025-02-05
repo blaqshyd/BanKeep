@@ -1,5 +1,5 @@
+import 'package:bankeep/utils/constants/exports.dart';
 import 'package:flutter/material.dart';
-import 'package:my_project/utils/constants/exports.dart';
 
 class AppTheme {
   static ThemeData lightTheme = ThemeData(
@@ -11,5 +11,6 @@ class AppTheme {
   static ThemeData darkTheme = ThemeData(
     brightness: Brightness.dark,
     textTheme: AppTextTheme.dark,
+    scaffoldBackgroundColor: AppColor.navColor,
   );
 }

@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 class AppColor {
   // AppColor._();
   static const primaryColor = Color(0xFF0066FF);
+  static const chartColor = Color(0xFF0066FF);
   static const navColor = Color(0xFFF4F4F4);
   static const scaffoldColor = Color(0xFFFFFFFF);
   static const descTextColor = Color(0xFF7E848D);

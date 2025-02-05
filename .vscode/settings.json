@@ -1,2 +1,4 @@
 {
+    "cmake.configureOnOpen": false,
+    "cmake.sourceDirectory": "/home/blaqshyd/Workspace/flutter/personal/provider/BanKeep/linux"
 }
