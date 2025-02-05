@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:my_project/utils/constants/exports.dart';
+import 'package:bankeep/utils/constants/exports.dart';
 
 class AppSizing {
   //! width
@@ -11,7 +11,7 @@ class AppSizing {
   static SizedBox w10 = SizedBox(width: 10.w);
   static SizedBox w05 = SizedBox(width: 5.w);
 
-//! leight
+//! height
   static SizedBox h60 = SizedBox(height: 60.h);
   static SizedBox h50 = SizedBox(height: 50.h);
   static SizedBox h40 = SizedBox(height: 40.h);

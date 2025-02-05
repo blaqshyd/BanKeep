@@ -1,89 +1,33 @@
 import 'package:flutter/material.dart';
+import 'package:bankeep/src/widgets/tab_bar.dart';
 
 import '../../../../utils/constants/exports.dart';
+import 'components/setting_opt.dart';
 
 class Settings extends StatelessWidget {
-  const Settings({Key? key}) : super(key: key);
+  const Settings({super.key});
 
   @override
   Widget build(BuildContext context) {
-    final user = Provider.of<UserProvider>(context).user;
     return Scaffold(
-      // appBar: AppBar(
-      //   title: const Text('Profile'),
-      //   centerTitle: true,
-      // ),
-      body: Padding(
-        padding: const EdgeInsets.all(16.0),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Container(
-              alignment: Alignment.center,
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey[300]),
-              child: Text(
-                'Full Name: ${user.name}',
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
+      body: Column(
+        mainAxisAlignment: MainAxisAlignment.start,
+        crossAxisAlignment: CrossAxisAlignment.start,
+        children: [
+          ScreenAppBar(
+            onRightTap: () => Navigator.pushAndRemoveUntil(
+              context,
+              MaterialPageRoute(
+                builder: (context) => const LoginPage(),
               ),
+              (route) => true,
             ),
-            const SizedBox(height: 20),
-            Container(
-              alignment: Alignment.center,
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey[300]),
-              child: Text(
-                user.email,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              alignment: Alignment.center,
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey[300]),
-              child: Text(
-                'Username: ${user.username}',
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-            const SizedBox(height: 20),
-            Container(
-              alignment: Alignment.center,
-              height: 50,
-              width: double.infinity,
-              decoration: BoxDecoration(
-                  borderRadius: BorderRadius.circular(12),
-                  color: Colors.grey[300]),
-              child: Text(
-                user.id,
-                style: const TextStyle(
-                  fontSize: 18,
-                  fontWeight: FontWeight.bold,
-                ),
-              ),
-            ),
-          ],
-        ),
+            text: 'Settings',
+            rightIcon: Iconsax.logout,
+          ),
+          AppSizing.h30,
+          const SettingsOption(),
+        ],
       ),
     );
   }

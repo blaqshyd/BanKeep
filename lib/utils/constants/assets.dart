@@ -1,12 +1,12 @@
 import 'package:flutter/material.dart';
-import 'package:my_project/utils/constants/exports.dart';
+import 'package:bankeep/utils/constants/exports.dart';
 
 class Assets {
   static String image = 'lib/assets/images/';
   static String icon = 'lib/assets/icons/';
   static String animation = 'lib/assets/animations/';
   static String illustration = 'lib/assets/illustrations/';
-  static String uri = 'https://serverdel.onrender.com/api/users';
+  static String uri = 'https://bankeep.onrender.com/api/users';
 }
 
 final List<IconData> iconMe = [
@@ -17,7 +17,7 @@ final List<IconData> iconMe = [
 ];
 
 final List<String> textMe = [
-  'Sent',
+  'Send',
   'Receive',
   'Loan',
   'Top Up',

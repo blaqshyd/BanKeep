@@ -13,7 +13,8 @@ class MainPage extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     var selectedIndex =
-        Provider.of<NavBarProvider>(context); //Provider for BottomNavBar
+        Provider.of<NavBarProvider>(context); 
+        //Provider for BottomNavBar
     var currentIndex = selectedIndex.getIndex;
 
     return Scaffold(
@@ -44,6 +45,7 @@ class NavBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return BottomNavigationBar(
+      
       onTap: (index) {
         selectedIndex.updateIndex(index);
       },

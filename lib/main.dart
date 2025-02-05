@@ -1,7 +1,6 @@
-// ignore_for_file: prefer_const_constructors, prefer_const_literals_to_create_immutables,
+import 'package:bankeep/utils/constants/exports.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:my_project/utils/constants/exports.dart';
 
 bool? isOnboardChecked;
 void main() async {
@@ -17,37 +16,30 @@ void main() async {
         ChangeNotifierProvider(create: (_) => UserProvider()),
         ChangeNotifierProvider(create: (_) => NavBarProvider())
       ],
-      child: DevicePreview(
-        enabled: false,
-        builder: (context) => const MyApp(),
-      ),
+      child: const MyApp(),
     ),
   );
 }
 
 class MyApp extends StatelessWidget {
-  const MyApp({Key? key}) : super(key: key);
+  const MyApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return ScreenUtilInit(
-      designSize: Size(375, 812),
+      designSize: const Size(375, 812),
       useInheritedMediaQuery: true,
       builder: (context, child) => MaterialApp(
-          useInheritedMediaQuery: true,
           debugShowCheckedModeBanner: false,
-          locale: DevicePreview.locale(context),
-          builder: DevicePreview.appBuilder,
           theme: AppTheme.lightTheme,
-          // darkTheme: AppTheme.darkTheme,
+          darkTheme: AppTheme.darkTheme,
           themeMode: ThemeMode.system,
           initialRoute: '/',
           routes: {
-            '/': (context) => SplashScreen(),
-            '/onboarding': (context) =>
-                isOnboardChecked == true ? OnboardingPage() : RegisterPage(),
-            '/sign_in': (context) => RegisterPage(),
-            '/sign_up': (context) => LoginPage(),
+            '/': (context) => const SplashScreen(),
+            '/onboarding': (context) => isOnboardChecked == true ? const OnboardingPage() : const RegisterPage(),
+            '/sign_in': (context) => const RegisterPage(),
+            '/sign_up': (context) => const LoginPage(),
             '/main': (context) => MainPage()
           }),
     );

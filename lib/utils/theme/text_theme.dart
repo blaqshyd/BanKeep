@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
-import 'package:my_project/utils/constants/exports.dart';
+import 'package:bankeep/utils/constants/exports.dart';
 
 abstract class AppTextTheme {
   static TextStyle headLine = GoogleFonts.poppins(
