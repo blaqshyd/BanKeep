@@ -18,10 +18,13 @@ class _LoginPageState extends State<LoginPage> {
 
   get isVisible => false;
   void logInUser() {
-    authService.signInUser(
-      context: context,
-      email: emailController.text,
-      password: passwordController.text,
+    // authService.signInUser(
+    //   context: context,
+    //   email: emailController.text,
+    //   password: passwordController.text,
+    // );
+    MaterialPageRoute(
+      builder: (context) => MainPage(),
     );
   }
 

@@ -95,7 +95,7 @@ class _OnboardingPageState extends State<OnboardingPage> {
                             onTap: () => Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => MainPage(),
+                                builder: (context) => const LoginPage(),
                               ),
                             ),
                           )

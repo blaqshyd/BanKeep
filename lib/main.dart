@@ -18,7 +18,7 @@ void main() async {
         ChangeNotifierProvider(create: (_) => NavBarProvider())
       ],
       child: DevicePreview(
-        enabled: true,
+        enabled: false,
         builder: (context) => const MyApp(),
       ),
     ),
