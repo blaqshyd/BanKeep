@@ -24,12 +24,15 @@ class _RegisterPageState extends State<RegisterPage> {
   get isVisible => false;
 
   void registerUser() {
-    authService.signUpUser(
-      context: context,
-      name: nameController.text,
-      username: usernameController.text,
-      email: emailController.text,
-      password: passwordController.text,
+    // authService.signUpUser(
+    //   context: context,
+    //   name: nameController.text,
+    //   username: usernameController.text,
+    //   email: emailController.text,
+    //   password: passwordController.text,
+    // );
+    MaterialPageRoute(
+      builder: (context) => MainPage(),
     );
   }
 
