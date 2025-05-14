@@ -26,6 +26,7 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    print(isOnboardChecked);
     return ScreenUtilInit(
       designSize: const Size(375, 812),
       useInheritedMediaQuery: true,
@@ -37,7 +38,7 @@ class MyApp extends StatelessWidget {
           initialRoute: '/',
           routes: {
             '/': (context) => const SplashScreen(),
-            '/onboarding': (context) => isOnboardChecked == true ? const OnboardingPage() : const RegisterPage(),
+            '/onboarding': (context) => (isOnboardChecked == true) ? const RegisterPage() : const OnboardingPage(),
             '/sign_in': (context) => const RegisterPage(),
             '/sign_up': (context) => const LoginPage(),
             '/main': (context) => MainPage()
